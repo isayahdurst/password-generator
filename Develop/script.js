@@ -101,9 +101,10 @@ const checkCriteria = function () {
     if (uppercaseCB) allowedCharacters.push(...uppercaseLetters);
     if (numbersCB) allowedCharacters.push(...numbersList);
     if (specialCB) allowedCharacters.push(...symbolsList);
-    console.log(allowedCharacters);
+    return true;
   } else {
     window.alert("Please select at least one type of character");
+    return false;
   }
 };
 
@@ -213,29 +214,27 @@ const shuffle = function (password) {
 // Main generation method which triggers all other minor functions.
 const generatePassword = function () {
   let password = [];
-  checkCriteria();
-  const [minLower, minUpper, minNumbers, minSpecial, PWLength, totalMin] =
-    getMinimumValues();
-  password = assignMinimums(minLower, minUpper, minNumbers, minSpecial);
-  for (let i = password.length; i < PWLength; i++) {
-    password[i] =
-      allowedCharacters[Math.floor(Math.random() * allowedCharacters.length)];
-  }
+  if (checkCriteria()) {
+    const [minLower, minUpper, minNumbers, minSpecial, PWLength, totalMin] =
+      getMinimumValues();
+    password = assignMinimums(minLower, minUpper, minNumbers, minSpecial);
+    for (let i = password.length; i < PWLength; i++) {
+      password[i] =
+        allowedCharacters[Math.floor(Math.random() * allowedCharacters.length)];
+    }
 
-  // Password is shuffled because the first characters are always printed in order if there are minimum values set, which is a security vulnerability.
-  shuffle(password);
-  let passwordText = document.querySelector("#password");
-  passwordText.value = password.join("");
-  copyButton.classList.remove("hidden");
-  closeModal();
+    // Password is shuffled because the first characters are always printed in order if there are minimum values set, which is a security vulnerability.
+    shuffle(password);
+    let passwordText = document.querySelector("#password");
+    passwordText.value = password.join("");
+    copyButton.classList.remove("hidden");
+    closeModal();
+  }
 };
 
 // Write password to the #password input
 function writePassword() {
   showModal();
-  // let password = generatePassword();
-  // let passwordText = document.querySelector("#password");
-  // passwordText.value = password;
 }
 
 // Add event listener to generate button
@@ -252,6 +251,9 @@ specialCB.addEventListener("click", toggleMinBoxes);
 passwordLengthSlider.addEventListener("mousemove", updateLength);
 
 copyButton.addEventListener("click", () => {
-  passwordBox.select();
   navigator.clipboard.writeText(passwordBox.value);
+  let password = passwordBox.value;
+  passwordBox.value = "Password copied to clipboard!";
+  setTimeout(() => (passwordBox.value = password), 1500);
+  setTimeout(() => passwordBox.select(), 1500);
 });
