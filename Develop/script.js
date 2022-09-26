@@ -59,6 +59,8 @@ let allowedCharacters = [];
 const passwordLengthSliderValue = document.querySelector(".value");
 const passwordLengthSlider = document.getElementById("password-length-slider");
 
+passwordLengthSliderValue.textContent = passwordLengthSlider.value;
+
 // Character Type Checkboxes:
 const lowercaseCB = document.querySelector(".lowercase");
 const uppercaseCB = document.querySelector(".uppercase");
