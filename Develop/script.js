@@ -1,6 +1,8 @@
 // Assignment Code
 const generateBtn = document.querySelector("#generate");
 const createPasswordBtn = document.querySelector(".create");
+const copyButton = document.querySelector(".copy-link-button");
+const passwordBox = document.querySelector("#password");
 
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
@@ -224,6 +226,7 @@ const generatePassword = function () {
   shuffle(password);
   let passwordText = document.querySelector("#password");
   passwordText.value = password.join("");
+  copyButton.classList.remove("hidden");
   closeModal();
 };
 
@@ -247,3 +250,8 @@ uppercaseCB.addEventListener("click", toggleMinBoxes);
 numbersCB.addEventListener("click", toggleMinBoxes);
 specialCB.addEventListener("click", toggleMinBoxes);
 passwordLengthSlider.addEventListener("mousemove", updateLength);
+
+copyButton.addEventListener("click", () => {
+  passwordBox.select();
+  navigator.clipboard.writeText(passwordBox.value);
+});

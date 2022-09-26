@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  --height: 100px;
+}
+
 html,
 body,
 .wrapper {
@@ -36,7 +40,7 @@ header {
   border-radius: 5px;
   border-width: 1px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
-  color: hsl(206, 17%, 28%);
+  color: black;
   font-size: 18px;
   margin: 0 auto;
   max-width: 800px;
@@ -53,6 +57,48 @@ header {
 
 .card-body {
   min-height: 100px;
+}
+
+.text-wrapper {
+  display: flex;
+}
+
+.copy-link-input {
+  flex-grow: 1;
+  padding: 0 8px;
+}
+
+.copy-link-button {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: var(--height);
+  font-size: 50px;
+  color: black;
+  border: dashed 2px #c0c7cf;
+  border-left: none;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  background-color: lightpink;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.copy-link-button:hover {
+  background-color: pink;
+}
+
+.copy-link-button i:hover {
+  transform: scale(1.1);
+  transform: rotate(3600);
+}
+
+.green-color {
+  color: green;
 }
 
 .card-footer {
@@ -114,7 +160,10 @@ button[disabled] {
   margin-top: 10px;
   margin-bottom: 10px;
   border: 2px dashed #c0c7cf;
-  border-radius: 6px;
+  border-right: none;
+  /* outline: none; */
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
   resize: none;
   overflow: hidden;
 }
