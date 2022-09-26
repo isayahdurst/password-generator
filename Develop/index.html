@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Password Generator</h1>
+      </header>
+      <div class="card">
+        <div class="card-header">
+          <h2>Generate a Password</h2>
+        </div>
+        <div class="card-body">
+          <textarea
+            readonly
+            id="password"
+            placeholder="Your Secure Password"
+            aria-label="Generated Password"
+          ></textarea>
+        </div>
+        <div class="card-footer">
+          <button id="generate" class="btn">Generate Password</button>
+        </div>
+      </div>
+      <div class="modal hidden">
+        <button class="close-modal">&times;</button>
+        <h2>Please Select Password Criteria:</h2>
+        <div class="criteria-wrapper">
+          <div class="specifics">
+            <h3>Character Type:</h3>
+            <div class="type">
+              <input type="checkbox" class = "lowercase">Lowercase</input>
+            </div>
+            <div class="type">
+              <input type="checkbox" class = "uppercase">Uppercase</input>
+            </div>
+            <div class="type">
+              <input type="checkbox" class = "numbers">numbers</input>
+            </div>
+            <div class="type">
+              <input type="checkbox" class = "special">special</input>
+            </div>
+          </div>
+          <div class="min-chars">
+            <h3>Min. # of Characters:</h3>
+            <div class="min type">
+              <input type="number" name="" id="min-lowercase" class="invisible" value="0">
+            </div>
+            <div class="min type">
+              <input type="number" name="" id="min-uppercase" class="invisible" value="0">
+            </div>
+            <div class="min type">
+              <input type="number" name="" id="min-numbers" class="invisible" value="0">
+            </div>
+            <div class="min type">
+              <input type="number" name="" id="min-special" class="invisible" value="0">
+            </div>
+          </div>
+          <!-- <div class="length">
+            <h3>Password Length:</h3>
+            <div class="password-length type">
+              <input type="number" name="" id="">
+            </div>
+          </div> -->
+        </div>
+        <div class="password-length">
+          <div class="header">
+            <h3>Password Length:</h3>
+          </div>
+          <div class="slider-box">
+            <div class="slider">
+              <input type="range" min="0" max="128" value="8" id="password-length-slider">
+            </div>
+            <div class="value">100</div>
+          </div>
+      </div>
+      <div class="create-password">
+        <button class='btn generate-btn create'>Create Password</button>
+      </div>
+        </div>
+      <div class="overlay hidden"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
