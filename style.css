@@ -79,17 +79,17 @@ header {
   width: var(--height);
   font-size: 50px;
   color: black;
-  border: dashed 2px #c0c7cf;
+  border: solid 1px #c0c7cf;
   border-left: none;
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-  background-color: lightpink;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 0px;
+  background-color: hsl(360, 60%, 36%);
   cursor: pointer;
   transition: all 0.25s ease;
 }
 
 .copy-link-button:hover {
-  background-color: pink;
+  background-color: hsl(360, 91%, 36%);
 }
 
 .copy-link-button i:hover {
@@ -159,13 +159,15 @@ button[disabled] {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  border: 2px dashed #c0c7cf;
+  border: 1px solid #c0c7cf;
   border-right: none;
-  /* outline: none; */
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
+  outline: none;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 20px;
   resize: none;
   overflow: hidden;
+  /* background: linear-gradient(to top left, #cccccc 0%, #ffffff 100%); */
+  background: rgba(255, 255, 255, 0.35);
 }
 
 @media (max-width: 690px) {
@@ -195,13 +197,13 @@ button[disabled] {
 .modal {
   margin-top: 20px;
   position: absolute;
-  top: 320px;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
   max-width: 800px;
 
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.9);
   padding: 6rem;
   border-radius: 5px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);

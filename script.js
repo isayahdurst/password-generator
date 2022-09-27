@@ -254,6 +254,6 @@ copyButton.addEventListener("click", () => {
   navigator.clipboard.writeText(passwordBox.value);
   let password = passwordBox.value;
   passwordBox.value = "Password copied to clipboard!";
-  setTimeout(() => (passwordBox.value = password), 1500);
-  setTimeout(() => passwordBox.select(), 1500);
+  setTimeout(() => (passwordBox.value = password), 1000);
+  setTimeout(() => passwordBox.select(), 1000);
 });
