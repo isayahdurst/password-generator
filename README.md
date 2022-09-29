@@ -18,6 +18,12 @@ This is my take on the password generator project which we've been tasked to com
 
 ## Overview
 
+### Screenshot
+
+[Starting screen](./Assets/images/pw-gen-01.png?raw=true "Start Screen")
+[Criteria prompt](./Assets/images/pw-gen-02.png?raw=true "Criteria Screen")
+[Result](./Assets/images/pw-gen-03.png?raw=true "Result")
+
 ### The challenge
 
 User Story:
